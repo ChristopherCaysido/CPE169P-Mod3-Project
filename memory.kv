@@ -1,0 +1,33 @@
+#include 
+<DropDownWidget>:
+
+<FrontLayout>:
+    orientation:'vertical'
+    BoxLayout:
+        orientation:'horizontal'
+        DropDown:
+            Button:
+                text:'Button1'
+                size_hint_y: None
+                height: 30
+                on_release: root.select('Button1')
+            Button:
+                text:'Button2'
+                size_hint_y: None
+                height: 30
+                on_release: root.select('Button2')
+            Button:
+                text:'Button3'
+                size_hint_y: None
+                height: 30
+                on_release: root.select('Button3')
+    BoxLayout:
+        orientation:'vertical'
+    BoxLayout:
+        orientation:'horizontal'
+        Button:
+            text:'Create Deck'
+        Button:
+            text:'Delete Deck'
+
+
