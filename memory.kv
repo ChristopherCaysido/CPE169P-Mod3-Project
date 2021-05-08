@@ -44,7 +44,7 @@
     BoxLayout:
         background_color:0.2,0.2,0.2,1
         orientation:'vertical'
-        pos_hint:{'x':.01,'y':.7}
+        pos_hint:{'x':.075,'y':.7}
         BoxLayout:
             orientation:'horizontal'
             size_hint_y:None
@@ -52,9 +52,9 @@
             Label:
                 id:nameDeck
                 text:'Name of Deck'
-                size_hint_x:None
                 size_hint_y:None
-                width:100
+                size_hint_x:None
+                width:175
                 height:30
             TextInput:
                 id:inputDeckName
@@ -67,19 +67,28 @@
         BoxLayout:
             orientation:'horizontal'
             size_hint_y:None
-            height:100
+            pos_hint_x:0.01
+            height:40
+            padding:5
             Label:
                 id:questionLabel
                 text:'Question'
+                size_hint_x:.8
+            TextInput:
+                id:actualQuestion
+                text:'Enter Your Question'
+                width:300
             Label:
                 id:correctColumn
                 text:'Correct Answer'
+                
     GridLayout:
         cols:3
         size_hint:(None,None)
         width:650
-        height:300
+        height:200
         pos_hint:{'x':.05,'y':.3}
+        padding:5
         Label:
             id:item1
             text:'Item #1'
@@ -140,7 +149,18 @@
             id:check4
             size_hint_y:None
             height:30
-
+    BoxLayout:
+        orientation:'horizontal'
+        size_hint_y:None
+        size_hint_x:.8
+        height:100
+        pos_hint:{'x':0.1,'y':0.075}
+        Button:
+            text:'Return'       
+        Button:
+            text:'Previous Question'
+        Button:
+            text:'Next Question'
 
 
 

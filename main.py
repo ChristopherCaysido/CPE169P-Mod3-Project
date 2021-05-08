@@ -16,6 +16,7 @@ class FrontLayout(FloatLayout):
     def callback_popup(self):
         show_popup()
     
+    
 class PopupWidget(FloatLayout):
     pass
 
@@ -26,7 +27,10 @@ class MemoryApp(App):
 
 def show_popup():
     show = PopupWidget()
-    popupWindow = Popup(title='Create Deck',content=show,size_hint=(None,None),size=(700,700))
+    popupWindow = Popup(title='Create Deck',content=show,size_hint=(None,None),size=(700,600))
     popupWindow.open()
+
+
+
 if __name__=='__main__':
     MemoryApp().run()
