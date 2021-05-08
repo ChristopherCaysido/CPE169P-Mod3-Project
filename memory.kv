@@ -31,6 +31,7 @@
             text:'Create Deck'
             pos_hint_y:0.6
             size_hint_y:0.3
+            on_release:root.callback_popup()
         Button:
             id:deleteButton
             text:'Delete Deck'
@@ -39,54 +40,127 @@
 <Button>:
     background_color:0,.68,.71
     color:1,1,1,1
-<>
 <PopupWidget>:
-    Label:
-        id:nameDeck
-        text:'Name of Deck'
-    TextInput:
-        text:'Type Name of Deck'
-    Label:
-        id:questionLabel
-        text:'Question'
-    Label:
-        id:correctColumn
-        text:'Correct Answer'
+    BoxLayout:
+        background_color:0.2,0.2,0.2,1
+        orientation:'vertical'
+        pos_hint:{'x':.075,'y':.7}
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y:None
+            height:100
+            Label:
+                id:nameDeck
+                text:'Name of Deck'
+                size_hint_y:None
+                size_hint_x:None
+                width:175
+                height:30
+            TextInput:
+                id:inputDeckName
+                text:'Type Name of Deck'
+                size_hint_x:None
+                size_hint_y:None
+                width:400
+                height:30
+                multiline:False
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y:None
+            pos_hint_x:0.01
+            height:40
+            padding:5
+            Label:
+                id:questionLabel
+                text:'Question'
+                size_hint_x:.8
+            TextInput:
+                id:actualQuestion
+                text:'Enter Your Question'
+                width:300
+            Label:
+                id:correctColumn
+                text:'Correct Answer'
+                
     GridLayout:
-        col:3
+        cols:3
+        size_hint:(None,None)
+        width:650
+        height:200
+        pos_hint:{'x':.05,'y':.3}
+        padding:5
         Label:
             id:item1
             text:'Item #1'
+            size_hint_y:None
+            height:30
         TextInput:
             id:input1
             text:'Input Choice 1'
+            size_hint_y:None
+            height:30
+            multiline:False
         CheckBox:
             id:check1
+            size_hint_y:None
+            height:30
         Label:
-            id:item1
-            text:'Item #1'
+            id:item2
+            text:'Item #2'
+            size_hint_y:None
+            height:30
         TextInput:
-            id:input1
-            text:'Input Choice 1'
+            id:input2
+            text:'Input Choice 2'
+            size_hint_y:None
+            height:30
+            multiline:False
         CheckBox:
-            id:check1
+            id:check2
+            size_hint_y:None
+            height:30
         Label:
-            id:item1
-            text:'Item #1'
+            id:item3
+            text:'Item #3'
+            size_hint_y:None
+            height:30
         TextInput:
-            id:input1
+            id:input3
             text:'Input Choice 1'
+            size_hint_y:None
+            height:30
+            multiline:False
         CheckBox:
-            id:check1
+            id:check3
+            size_hint_y:None
+            height:30
         Label:
-            id:item1
-            text:'Item #1'
+            id:item4
+            text:'Item #4'
+            size_hint_y:None
+            height:30
         TextInput:
-            id:input1
+            id:input4
             text:'Input Choice 1'
+            size_hint_y:None
+            height:30
+            multiline:False
         CheckBox:
-            id:check1
-
+            id:check4
+            size_hint_y:None
+            height:30
+    BoxLayout:
+        orientation:'horizontal'
+        size_hint_y:None
+        size_hint_x:.8
+        height:100
+        pos_hint:{'x':0.1,'y':0.075}
+        Button:
+            text:'Return'       
+        Button:
+            text:'Previous Question'
+        Button:
+            text:'Next Question'
 
 
 
