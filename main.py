@@ -13,7 +13,9 @@ from kivy.core.window import Window
 Window.size = (1000,700)
 
 class FrontLayout(FloatLayout):
-    pass
+    def callback_popup(self):
+        show_popup()
+    
 class PopupWidget(FloatLayout):
     pass
 
@@ -22,5 +24,9 @@ class MemoryApp(App):
         frontpage = FrontLayout()
         return frontpage
 
+def show_popup():
+    show = PopupWidget()
+    popupWindow = Popup(title='Create Deck',content=show,size_hint=(None,None),size=(700,700))
+    popupWindow.open()
 if __name__=='__main__':
     MemoryApp().run()
