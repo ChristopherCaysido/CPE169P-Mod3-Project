@@ -1,0 +1,228 @@
+WindowManager:
+    canvas.before:
+        Color:
+            rgba:(.98,.96,.94,1)
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    FrontScreen:
+    DrillScreen:
+
+<FrontScreen>:
+    name:"frontscreen"
+    
+    FloatLayout:
+        Button:
+            id:startButton
+            text:'Start Drill'
+            pos_hint:{'x':0.70,'y':0.70}
+            size_hint:.15,.10
+            on_release:
+                app.root.transition.direction = 'left'
+                app.root.current = 'drillscreen'
+                
+        Spinner:
+            id:spinnerdropdown
+            text:'Select Drill'
+            background_color:0.67,.85,.83,1
+            values:('Testing1','Testing2','Testing3','Testing4') #Make it some way to access tables in datables 
+            size_hint:.5,.10
+            pos_hint:{'x':0.20,'y':0.70}
+        BoxLayout:
+            orientation:'vertical'
+            size_hint:(.4,.3)
+            pos_hint:{'x':.3,'y':.3}
+            canvas.before:
+                Color:
+                    rgba:(0.67,.85,.83,1)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y:.5
+            color:0.2,0.5,0.5,1
+            Button:
+                id:createButton
+                text:'Create Deck'
+                pos_hint_y:0.6
+                size_hint_y:0.3
+                on_release:root.callback_popup()
+            Button:
+                id:deleteButton
+                text:'Delete Deck'
+                pos_hint_y:0.6
+                size_hint_y:0.3
+<DrillScreen>:
+    name:"drillscreen"
+    FloatLayout:
+        Label:
+            background_color:0.67,.85,.83,1
+            size_hint:(.8,.3)
+            pos_hint:{'x':0.1,'y':.55}
+            id:drillQuestion
+            font_size: 40
+            text:'Insert Question Here'
+            canvas.before:
+                Color:
+                    rgba:(0.67,.85,.83,1)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+        GridLayout:
+            cols:2
+            size_hint:(.8,.35)
+            pos_hint:{'x':0.10,'y':0.25}
+            Button:
+                text:'Choice 1' 
+            Button:
+                text:'Choice 2'
+            Button:
+                text:'Choice 3'
+            Button:
+                text:'Choice 4'
+        Button:
+            size_hint_x:.3
+            size_hint_y:None
+            height:40
+            pos_hint:{'x':0.1,'y':0.1}
+            text:'Return'
+            on_release:
+                app.root.transition.direction = 'right'
+                app.root.current = 'frontscreen'
+        Button:
+            size_hint_x:.3
+            size_hint_y:None
+            height:40
+            pos_hint:{'x':0.6,'y':0.1}
+            text:'Next Question'
+               
+<Button>:
+    background_color:0,.68,.71
+    color:1,1,1,1
+<PopupWidget>:
+    BoxLayout:
+        background_color:0.2,0.2,0.2,1
+        orientation:'vertical'
+        pos_hint:{'x':.075,'y':.7}
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y:None
+            height:100
+            Label:
+                id:nameDeck
+                text:'Name of Deck'
+                size_hint_y:None
+                size_hint_x:None
+                width:175
+                height:30
+            TextInput:
+                id:inputDeckName
+                text:'Type Name of Deck'
+                size_hint_x:None
+                size_hint_y:None
+                width:400
+                height:30
+                multiline:False
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y:None
+            pos_hint_x:0.01
+            height:40
+            padding:5
+            Label:
+                id:questionLabel
+                text:'Question'
+                size_hint_x:.8
+            TextInput:
+                id:actualQuestion
+                text:'Enter Your Question'
+                width:300
+            Label:
+                id:correctColumn
+                text:'Correct Answer'
+                
+    GridLayout:
+        cols:3
+        size_hint:(None,None)
+        width:650
+        height:200
+        pos_hint:{'x':.05,'y':.3}
+        padding:5
+        Label:
+            id:item1
+            text:'Item #1'
+            size_hint_y:None
+            height:30
+        TextInput:
+            id:input1
+            text:'Input Choice 1'
+            size_hint_y:None
+            height:30
+            multiline:False
+        CheckBox:
+            id:check1
+            size_hint_y:None
+            height:30
+        Label:
+            id:item2
+            text:'Item #2'
+            size_hint_y:None
+            height:30
+        TextInput:
+            id:input2
+            text:'Input Choice 2'
+            size_hint_y:None
+            height:30
+            multiline:False
+        CheckBox:
+            id:check2
+            size_hint_y:None
+            height:30
+        Label:
+            id:item3
+            text:'Item #3'
+            size_hint_y:None
+            height:30
+        TextInput:
+            id:input3
+            text:'Input Choice 1'
+            size_hint_y:None
+            height:30
+            multiline:False
+        CheckBox:
+            id:check3
+            size_hint_y:None
+            height:30
+        Label:
+            id:item4
+            text:'Item #4'
+            size_hint_y:None
+            height:30
+        TextInput:
+            id:input4
+            text:'Input Choice 1'
+            size_hint_y:None
+            height:30
+            multiline:False
+        CheckBox:
+            id:check4
+            size_hint_y:None
+            height:30
+    BoxLayout:
+        orientation:'horizontal'
+        size_hint_y:None
+        size_hint_x:.8
+        height:100
+        pos_hint:{'x':0.1,'y':0.075}
+        Button:
+            text:'Return'       
+        Button:
+            text:'Previous Question'
+        Button:
+            text:'Next Question'
+
+
+
+
