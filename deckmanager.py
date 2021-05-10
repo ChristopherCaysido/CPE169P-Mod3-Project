@@ -32,7 +32,15 @@ class DeckManager:
         return new_deck
 
     def load_database(self):
-        pass
+
+        with sqlite3.connect(db_path) as conn:
+            cursor = conn.cursor()
+
+            for row in cursor.execute("SELECT * FROM decks"):
+                cursor.execute("SELECT * FROM deck_items where deck_id = ")
+                load_deck = deck(name, items)
+                
+        self.decks[name] = load_deck  
 
     def update_database(self):
         
