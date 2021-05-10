@@ -15,6 +15,9 @@ class Deck:
         '''Draws k number of answer/s from the deck'''
         return [item.answer for item in random.sample(list(self.items.values()), k = k)]
 
+    def add_item(self, text: str, answer: str):
+        self.items[text] = Item(text, answer)
+
     def __getitem__(self, key: str):
         return self.items[key]
 
