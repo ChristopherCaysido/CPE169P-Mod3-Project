@@ -9,6 +9,7 @@ class DeckManager:
         self.db_path = db_path
         self.decks = {}
         self.create_database()
+        self.load_database()
 
     def create_deck(self, name:str, 
                     items:dict=None, 
