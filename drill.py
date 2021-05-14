@@ -36,11 +36,11 @@ class Drill:
         correct = self.current_question.check_answer(answer)
         text = self.current_question.text
         if text not in self.scores:
-            scores[text] = 0
+            self.scores[text] = 0
         if correct:
-            scores[text] += 1
+            self.scores[text] += 1
         else:
-            scores[text] += -1
+            self.scores[text] += -1
             self.question_queue.insert(0, self.current_question)
         
         return correct
