@@ -1,3 +1,5 @@
+#:kivy 1.0
+
 WindowManager:
     canvas.before:
         Color:
@@ -6,7 +8,9 @@ WindowManager:
             size:self.size
             pos:self.pos
     FrontScreen:
+        id: frontscreen
     DrillScreen:
+        id: drillscreen
 
 <FrontScreen>:
     name:"frontscreen"
@@ -18,16 +22,20 @@ WindowManager:
             pos_hint:{'x':0.70,'y':0.70}
             size_hint:.15,.10
             on_release:
+                app.start_drill()
                 app.root.transition.direction = 'left'
                 app.root.current = 'drillscreen'
                 
         Spinner:
             id:spinnerdropdown
-            text:'Select Drill'
+            text: 'Select Drill'
             background_color:0.67,.85,.83,1
-            values:('Testing1','Testing2','Testing3','Testing4') #Make it some way to access tables in datables 
+            values: ('Testing1','Testing2','Testing3','Testing4') #Make it some way to access tables in datables 
             size_hint:.5,.10
             pos_hint:{'x':0.20,'y':0.70}
+            on_text:
+                app.current_deck_name = self.text
+                print(app.current_drill)
         BoxLayout:
             orientation:'vertical'
             size_hint:(.4,.3)
@@ -71,6 +79,7 @@ WindowManager:
                     size:self.size
                     pos:self.pos
         GridLayout:
+            id:choices
             cols:2
             size_hint:(.8,.35)
             pos_hint:{'x':0.10,'y':0.25}
@@ -97,6 +106,8 @@ WindowManager:
             height:40
             pos_hint:{'x':0.6,'y':0.1}
             text:'Next Question'
+            on_release:
+                app.load_next_question()
                
 <Button>:
     background_color:0,.68,.71

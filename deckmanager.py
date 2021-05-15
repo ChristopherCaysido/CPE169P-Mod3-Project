@@ -32,6 +32,9 @@ class DeckManager:
 
         return new_deck
 
+    def get_deck_names(self):
+        return tuple(self.decks.keys())
+
     def create_database(self):
         with sqlite3.connect(self.db_path) as conn:
             cur = conn.cursor()
@@ -65,7 +68,7 @@ class DeckManager:
                 
                 cursor.execute("""SELECT item_text, item_answer  
                                     FROM deck_items where deck_id = ?""", 
-                                deck_id)
+                                (deck_id,))
                 items = {item[0]: item[1] for item in cursor.fetchall()}
                 load_deck = Deck(name, items, custom_font)
                 self.decks[name] = load_deck  

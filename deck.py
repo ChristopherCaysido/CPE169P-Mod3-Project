@@ -1,7 +1,7 @@
 import random
 
 class Deck:
-    def __init__(self, name: str = '', items: dict = {}, custom_font:str = ''):
+    def __init__(self, name: str = '', items: dict = {}, custom_font:str = None):
         self.name = name
         self.items = {key: Item(key, item) for key, item in items.items()}
         self.custom_font = custom_font
